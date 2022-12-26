@@ -52,16 +52,21 @@ function score(result){ //count the score and annouce the winner after each roun
                 switch(result){
             case 'player':
                 playerScore +=1;
-                console.log('You just got one score');
+                div.textContent ='You just got one score';
                 break;
             case 'computer':
                 computerScore +=1;
-                console.log('The computer got one score');
+                div.textContent='The computer got one score';
                 break;
             default:
-                console.log('No score for both of you cuz you tie');
+                div.textContent='No score for both of you cuz you tie';
                 }  
 }
+let div = document.createElement('div');
+    div.style.margin ='50px 0px';
+    document.body.appendChild(div);
+
+
 const buttons = document.querySelectorAll('button');
 let n=0;
 let computerScore =0;
@@ -80,11 +85,11 @@ function game(){    //anounce the final winner
     else if(n==5) {
         score(result);
         if (playerScore > computerScore){
-            console.log(`Congratulation! You win! Your score is ${playerScore}`);
+            div.textContent=`Congratulation! You win! Your score is ${playerScore}`;
         } else if (playerScore < computerScore){
-            console.log(`Sorry, you lose! Your score is ${playerScore}`);
+            div.textContent=`Sorry, you lose! Your score is ${playerScore}`;
         } else {
-            console.log('You tie with the computer!');
+            div.textContent='You tie with the computer!';
         }
     }
     }      
