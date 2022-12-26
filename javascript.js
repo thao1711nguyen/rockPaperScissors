@@ -15,62 +15,81 @@ function getComputerChoice (){
     return a;
 }
 
-function playRound (){
-    let playerSelection = prompt('Rock, paper or scissors?');
+function playRound (playerSelection){  //Play the game one time and return the winner
     let computerSelection = getComputerChoice();
     playerSelection.toLocaleLowerCase();
     if(playerSelection == computerSelection){
-        return 'We tie';
+        return '';
     } else if(playerSelection == 'rock'){
         switch (computerSelection){
             case 'paper':
-                return 'You win!';
+                return 'player';
                 break;
             default:
-                return 'You lose!';
+                return'computer';
         }
 
     } else if(playerSelection == 'paper'){
         switch (computerSelection){
             case 'rock':
-                return 'You win!';
+                return'player';
                 break;
             default:
-                return 'You lose!';
+                return 'computer';
         }
     } else {
         switch (computerSelection){
             case 'rock':
-                return 'You lose!';
+                return 'player';
                 break;
             default:
-                return 'You win!';
+                return 'computer';
         }
     }
     
 }
-function game(){
-    let computerScore = 0;
-    let playerScore = 0;
-    for (let i = 0; i <5 ; i++){
-        let result = playRound();
-        switch(result){
-            case 'You win!':
+function score(result){ //count the score and annouce the winner after each round
+                switch(result){
+            case 'player':
                 playerScore +=1;
-                console.log('Congratulation! You just got one score');
+                console.log('You just got one score');
                 break;
-            case 'You lose!':
+            case 'computer':
                 computerScore +=1;
-                console.log('Sorry, you lose so the computer got one score');
+                console.log('The computer got one score');
                 break;
             default:
                 console.log('No score for both of you cuz you tie');
+                }  
+}
+const buttons = document.querySelectorAll('button');
+let n=0;
+let computerScore =0;
+let playerScore = 0;
+buttons.forEach((button) => {
+    
+    button.addEventListener('click', game) 
+});
+
+function game(){    //anounce the final winner
+    n++;
+    let result = playRound(this.textContent); // e.target.textContent == this.textContent
+    if(n<5){
+        score(result);     
+    }
+    else if(n==5) {
+        score(result);
+        if (playerScore > computerScore){
+            console.log(`Congratulation! You win! Your score is ${playerScore}`);
+        } else if (playerScore < computerScore){
+            console.log(`Sorry, you lose! Your score is ${playerScore}`);
+        } else {
+            console.log('You tie with the computer!');
         }
     }
-    if (playerScore > computerScore){
-        console.log(`Congratulation! You win! Your score is ${playerScore}`);
+    }      
 
-    } else {
-        console.log(`Sorry, you lose! Your score is ${playerScore}`);
-    } 
-}
+    
+
+
+
