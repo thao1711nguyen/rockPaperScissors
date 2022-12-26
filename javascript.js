@@ -91,7 +91,7 @@ function game(){    //anounce the final winner
         } else {
             div.textContent='You tie with the computer!';
         }
-    }
+    } 
     }      
 
     
