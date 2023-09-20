@@ -5,13 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
 </head>
 <body>
-    <h3>Rock, paper or scissors?</h3>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    
+    <div id="buttons">
+        <button id="start">Start</button>
+        <button id="exit">Exit</button>
+    </div>
+    <div id="game">
+        <h2></h2>
+        <h3>Rock, paper or scissors?</h3>
+        <div id="container">
+            <div class = 'piece' data-name = 'rock'>
+                <img src="https://www.seekpng.com/png/full/816-8161371_rock-paper-scissor-icon-png.png" alt="">
+            </div>
+            <div class = 'piece' data-name="paper">
+                <img src="https://static.thenounproject.com/png/477922-200.png" alt="">
+            </div>
+            <div class = 'piece' data-name="scissors">
+                <img src="https://www.seekpng.com/png/detail/111-1114370_rock-paper-scissors-rock-paper-scissors-clipart.png" alt="">
+            </div>
+        </div>
+        <div id="output">
+            <div id="winner"></div>
+            <div id="round-result">
+                <p></p>
+                <p></p>
+            </div>
+            <div id="piece-display">
+                <div id="player">
+                    <div class="rock"><img src="https://www.seekpng.com/png/full/816-8161371_rock-paper-scissor-icon-png.png" alt=""></div>
+                    <div class="paper"><img src="https://static.thenounproject.com/png/477922-200.png" alt=""></div>
+                    <div class="scissors"><img src="https://www.seekpng.com/png/detail/111-1114370_rock-paper-scissors-rock-paper-scissors-clipart.png" alt=""></div>
+                    
+                </div>
+                <div id="computer">
+                    <div class="rock"><img src="https://www.nicepng.com/png/detail/6-61708_rock-rock-paper-scissors-clipart.png" alt=""></div>
+                    <div class="paper"><img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296855_1280.png" alt=""></div>
+                    <div class="scissors"><img src="https://w7.pngwing.com/pngs/588/310/png-transparent-hand-rock-paper-scissors-computer-icons-hand-angle-text-photography.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
